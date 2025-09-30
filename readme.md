@@ -10,43 +10,37 @@ Sistema web de votación en tiempo real con WebSockets, diseñado para seminario
 - **Restricciones**: Máximo 30 participantes, 1 voto por persona
 - **Diseño Responsive**: Optimizado para dispositivos móviles
 
-## 🚀 Instalación
 
-### Requisitos Previos
+## 🚀 Instalación y Despliegue
+
+### Opción 1: Usando Docker Compose (Recomendado)
+
+1. Asegúrate de tener [Docker](https://www.docker.com/products/docker-desktop/) instalado y en ejecución.
+2. En la raíz del proyecto, ejecuta:
+   ```bash
+   docker compose up -d
+   ```
+3. Accede a la aplicación en tu navegador en: `http://localhost:5002`
+
+---
+
+### Opción 2: Instalación Manual
+
+#### Requisitos Previos
 - Node.js (versión 14 o superior)
 - npm (viene con Node.js)
 
-### Pasos de Instalación
+#### Pasos de Instalación
 
-1. **Crear estructura de carpetas**:
-```bash
-mkdir voting-app
-cd voting-app
-mkdir public
-cd public
-mkdir css js
-cd ..
-```
-
-2. **Copiar archivos**:
-   - `server.js` → raíz del proyecto
-   - `db.js` → raíz del proyecto
-   - `package.json` → raíz del proyecto
-   - `index.html`, `admin.html`, `participant.html`, `results.html` → carpeta `public/`
-   - `styles.css` → carpeta `public/css/`
-   - `admin.js`, `participant.js`, `results.js` → carpeta `public/js/`
-
-3. **Instalar dependencias**:
-```bash
-npm install
-```
-
-4. **Iniciar el servidor**:
-```bash
-npm start
-```
-
-5. **Acceder a la aplicación**:
+1. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
+2. **Iniciar el servidor**:
+   ```bash
+   npm start
+   ```
+3. **Acceder a la aplicación**:
    - Abrir navegador en: `http://localhost:3000`
 
 ## 📱 Uso de la Aplicación
