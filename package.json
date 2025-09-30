@@ -1,0 +1,26 @@
+{
+  "name": "seminario",
+  "version": "1.0.0",
+  "description": "Sistema de votación en tiempo real para seminarios con WebSockets",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "voting",
+    "websocket",
+    "realtime",
+    "seminario"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

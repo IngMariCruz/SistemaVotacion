@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votación - Participante</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🗳️ Sistema de Votación</h1>
+      <p class="subtitle">Selecciona tu tema favorito</p>
+      <span id="votingStatus" class="status-badge closed">Esperando...</span>
+    </div>
+
+    <!-- Mensaje -->
+    <div id="message" class="hidden"></div>
+
+    <!-- Registro -->
+    <div id="registerSection">
+      <div class="input-group">
+        <label for="nameInput">Tu nombre:</label>
+        <input type="text" id="nameInput" placeholder="Ej: Juan Pérez" autofocus>
+      </div>
+      <button class="btn" onclick="register()">Ingresar</button>
+    </div>
+
+    <!-- Votación -->
+    <div id="votingSection" class="hidden">
+      <div id="waitingMessage" class="message info">
+        <strong>⏳ Esperando...</strong>
+        <p>La votación aún no ha comenzado. Por favor espera a que el administrador la abra.</p>
+      </div>
+
+      <div id="topicsSection" class="hidden">
+        <h2 style="margin-bottom: 15px; color: #333;">📋 Temas Disponibles</h2>
+        <p style="color: #6b7280; margin-bottom: 20px; font-size: 14px;">
+          Selecciona un tema y haz clic en votar. Solo puedes votar una vez.
+        </p>
+        <ul class="topic-list" id="topicsList"></ul>
+        <button class="btn" id="voteBtn" onclick="submitVote()" disabled>Votar</button>
+      </div>
+
+      <div id="successSection" class="hidden">
+        <div class="message success">
+          <strong>✅ ¡Voto registrado exitosamente!</strong>
+          <p id="votedTopicName"></p>
+        </div>
+        <button class="btn" onclick="window.location.href='/results.html'">Ver Resultados</button>
+      </div>
+
+      <div id="alreadyVotedSection" class="hidden">
+        <div class="message info">
+          <strong>ℹ️ Ya has votado</strong>
+          <p>Solo puedes votar una vez en esta sesión.</p>
+        </div>
+        <button class="btn" onclick="window.location.href='/results.html'">Ver Resultados</button>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary" onclick="window.location.href='/'" style="margin-top: 20px;">← Volver al Inicio</button>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/participant.js"></script>
+</body>
+</html>

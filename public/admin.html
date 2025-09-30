@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración - Votación</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>👨‍💼 Panel de Administración</h1>
+      <p class="subtitle">Gestiona la votación del seminario</p>
+      <span id="votingStatus" class="status-badge closed">Votación Cerrada</span>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="statParticipants">0</div>
+        <div class="stat-label">Participantes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statVotes">0</div>
+        <div class="stat-label">Votos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statTopics">0</div>
+        <div class="stat-label">Temas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statVoted">0</div>
+        <div class="stat-label">Han Votado</div>
+      </div>
+    </div>
+
+    <!-- Mensaje -->
+    <div id="message" class="hidden"></div>
+
+    <!-- Crear Temas -->
+    <div class="section" id="createSection">
+      <h2 style="margin-bottom: 15px; color: #333;">📝 Crear Temas</h2>
+      <div class="input-group">
+        <label for="topicInput">Nombre del tema:</label>
+        <input type="text" id="topicInput" placeholder="Ej: Inteligencia Artificial en la Educación">
+      </div>
+      <button class="btn" onclick="createTopic()">Agregar Tema</button>
+      <button class="btn btn-danger" onclick="clearTopics()">Limpiar Todos los Temas</button>
+    </div>
+
+    <!-- Lista de Temas -->
+    <div class="section" style="margin-top: 30px;">
+      <h2 style="margin-bottom: 15px; color: #333;">📋 Temas Creados</h2>
+      <ul class="topic-list" id="topicsList">
+        <li style="text-align: center; color: #6b7280; padding: 20px;">
+          No hay temas creados
+        </li>
+      </ul>
+    </div>
+
+    <!-- Controles de Votación -->
+    <div class="section" style="margin-top: 30px;">
+      <h2 style="margin-bottom: 15px; color: #333;">⚙️ Controles</h2>
+      <button class="btn btn-success" id="openBtn" onclick="openVoting()">Abrir Votación</button>
+      <button class="btn btn-danger" id="closeBtn" onclick="closeVoting()" disabled>Cerrar Votación</button>
+      <button class="btn btn-secondary" onclick="window.location.href='/results.html'">Ver Resultados</button>
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr-container" id="qrContainer" style="display: none;">
+      <h3 style="margin-bottom: 15px; color: #333;">📱 QR para Participantes</h3>
+      <img id="qrImage" src="" alt="QR Code">
+      <p id="qrUrl" style="margin-top: 10px; color: #6b7280; font-size: 12px; word-break: break-all;"></p>
+    </div>
+
+    <!-- Botón Reset -->
+    <button class="btn btn-danger" onclick="resetAll()" style="margin-top: 30px;">🔄 Resetear Todo</button>
+    
+    <button class="btn btn-secondary" onclick="window.location.href='/'" style="margin-top: 10px;">← Volver al Inicio</button>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Votación - Seminario</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .role-card {
+      background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-color: #667eea;
+    }
+
+    .role-card .icon {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    .role-card h2 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .role-card p {
+      color: #6b7280;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🗳️ Sistema de Votación</h1>
+      <p class="subtitle">Selecciona tu rol para continuar</p>
+    </div>
+
+    <div class="role-grid">
+      <div class="role-card" onclick="window.location.href='/admin.html'">
+        <div class="icon">👨‍💼</div>
+        <h2>Administrador</h2>
+        <p>Crear temas, gestionar votación y ver resultados</p>
+      </div>
+
+      <div class="role-card" onclick="window.location.href='/participant.html'">
+        <div class="icon">👤</div>
+        <h2>Participante</h2>
+        <p>Votar por tu tema favorito</p>
+      </div>
+
+      <div class="role-card" onclick="window.location.href='/results.html'">
+        <div class="icon">📊</div>
+        <h2>Ver Resultados</h2>
+        <p>Visualizar resultados en tiempo real</p>
+      </div>
+    </div>
+
+    <div class="message info" style="margin-top: 30px;">
+      <strong>ℹ️ Nota:</strong> Esta aplicación permite votación con máximo 30 participantes. Cada participante puede votar solo una vez.
+    </div>
+  </div>
+</body>
+</html>

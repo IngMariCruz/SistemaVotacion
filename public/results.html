@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados en Tiempo Real</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📊 Resultados de la Votación</h1>
+      <p class="subtitle">Actualizados en tiempo real</p>
+      <span id="votingStatus" class="status-badge closed">Votación Cerrada</span>
+    </div>
+
+    <!-- Estadísticas Rápidas -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="totalVotes">0</div>
+        <div class="stat-label">Total Votos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="totalParticipants">0</div>
+        <div class="stat-label">Participantes</div>
+      </div>
+    </div>
+
+    <!-- Gráfico de Barras -->
+    <div class="chart-container" id="chartContainer">
+      <h2 style="margin-bottom: 20px; color: #333; text-align: center;">
+        Resultados por Tema
+      </h2>
+      <div id="chartBars"></div>
+      <div id="noDataMessage" style="text-align: center; color: #6b7280; padding: 40px;">
+        No hay votos registrados aún
+      </div>
+    </div>
+
+    <!-- Tabla de Resultados -->
+    <div style="margin-top: 30px;">
+      <h2 style="margin-bottom: 15px; color: #333;">📋 Tabla de Resultados</h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: #f9fafb; border-bottom: 2px solid #e5e7eb;">
+              <th style="padding: 12px; text-align: left; color: #333; font-weight: 600;">#</th>
+              <th style="padding: 12px; text-align: left; color: #333; font-weight: 600;">Tema</th>
+              <th style="padding: 12px; text-align: center; color: #333; font-weight: 600;">Votos</th>
+              <th style="padding: 12px; text-align: center; color: #333; font-weight: 600;">%</th>
+            </tr>
+          </thead>
+          <tbody id="resultsTable">
+            <tr>
+              <td colspan="4" style="text-align: center; color: #6b7280; padding: 20px;">
+                No hay datos disponibles
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Botón de actualización manual (por si acaso) -->
+    <button class="btn btn-secondary" onclick="requestUpdate()" style="margin-top: 20px;">
+      🔄 Actualizar Resultados
+    </button>
+    
+    <button class="btn btn-secondary" onclick="window.location.href='/'">
+      ← Volver al Inicio
+    </button>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/results.js"></script>
+</body>
+</html>
